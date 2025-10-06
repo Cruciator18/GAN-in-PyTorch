@@ -6,12 +6,17 @@ def fix_notebook_widgets(notebook_path):
     Adds the missing 'state' key to widget metadata in a Jupyter Notebook.
     """
     try:
+        
+        notebook_path=r"C:\Users\ipand\Desktop\GANs\Copy_of_GEN_AI101.ipynb"
+
         with open(notebook_path, 'r', encoding='utf-8') as f:
-            notebook = json.load(f)
+            notebook = json.load(r"C:\Users\ipand\Desktop\GANs\Copy_of_GEN_AI101.ipynb")
+            
 
         # Check for widget metadata in the main notebook metadata
         if 'metadata' in notebook and 'widgets' in notebook['metadata']:
             widgets = notebook['metadata']['widgets']
+
             for key, widget_data in widgets.items():
                 if 'state' not in widget_data:
                     widget_data['state'] = {}
